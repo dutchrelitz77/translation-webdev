@@ -1,0 +1,125 @@
+## this is the skeleton of all pages on in this app - it defines the basic html tags
+
+## set up a StaticRenderer object to enable the CSS/JS automatic inclusion magic.
+<%! from django_mako_plus.controller import static_files %>
+<%  static_renderer = static_files.StaticRenderer(self) %>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title><%block name='title'></%block></title>
+    
+    ## add any site-wide scripts or CSS here; for example, jquery:
+    <script src="${ STATIC_URL }homepage/scripts/jquery.min.js"></script>
+    <script src="${ STATIC_URL }homepage/scripts/jquery-ui.js"></script>
+    <script src="${ STATIC_URL }homepage/media/plugins/jquery.enablepopout.js"></script>
+
+
+    <!-- Latest compiled and minified CSS for bootstrap -->
+    <link rel="stylesheet" href="${ STATIC_URL }homepage/styles/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="${ STATIC_URL }homepage/styles/bootstrap/bootstrap-theme.min.css">
+
+    <!-- Stylesheet for the datetimepicker -->
+    <link rel="stylesheet" href="${ STATIC_URL }homepage/scripts/datetimepicker-master/jquery.datetimepicker.css">
+
+    <!-- This is used for the shortcut icon -->
+    <link rel="shortcut icon" href="http://worldwater.byu.edu/template/img/favicon.ico">
+
+    ## render the css with the same name as this page
+    ${ static_renderer.get_template_css(request, context)  }
+
+    <%! import datetime %>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid byu">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">
+            <img alt='Brand Logo' src='${ STATIC_URL }homepage/media/pics/logo2.png'>
+          </a>
+          <p class="navbar-text" style='font-size="2em;'>BYU World Water Project</p>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="/homepage/index/">Home Page</a></li>
+            <li><a href="/homepage/photos/">Photos</a></li>
+            <li><a href="/homepage/tabledemo/">Table</a></li>
+            <li><a href="/homepage/uploader/">File Upload</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">HydroServer Lite</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Your Account <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Admin</a></li>
+                <li><a href="#">Change Password</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Log Out</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <header>
+      <h1><%block name='main_title'></%block></h1>
+    </header>
+
+    <div class="alert">
+        <div class="message-content">
+            <%block name='message'><div id="not-empty"></div></%block>
+        </div>
+    </div>
+
+    <main>
+  		<div id = 'main_left_content'>
+            <div id = 'main_left_content_menu'>
+                <li><a href='#'>Item One</a></li>
+                <li><a href='#'>Item Two</a></li>
+                <li><a href='#'>Item Three</a></li>
+                <li><a href='#'>Item Four</a></li>
+                <%block name='main_left_content'></%block>
+            </div>
+  		</div>
+
+  		<div id = 'main_center_content'>
+  			<%block name="main_center_content2">
+          Site content goes here sub-templates.
+        </%block>
+        <br>
+  		</div>
+
+    </main>
+
+    <footer>
+      <p>Copyright: Coding Engineers, LLC | ${ datetime.datetime.now().strftime("%b-%Y") }</p>
+    </footer>
+  
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="${ STATIC_URL }homepage/scripts/bootstrap/bootstrap.min.js"></script>
+
+    <script src="${ STATIC_URL }homepage/scripts/functions.js"></script>
+    <script src="${ STATIC_URL }homepage/scripts/datetimepicker-master/jquery.datetimepicker.js"></script>
+    <script src="${ STATIC_URL }homepage/scripts/plugins/bootstrap-filestyle.min.js"></script>
+
+    ## render the JS with the same name as this page
+    ${ static_renderer.get_template_js(request, context)  }
+  
+  </body>
+</html>

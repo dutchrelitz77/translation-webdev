@@ -1,0 +1,18 @@
+<%inherit file="base.htm" />
+
+<%block name='title'>Translation Home Page</%block>
+
+<%block name="main_center_content2">
+    <div class="content">
+        <h1>Photo Gallery</h1>
+        <p>Below is a photo gallery of popular Natural Parks around America</p>
+        <p>Hover over each picture to show the name of the National Park associated with each picture</p>
+    </div>
+
+    <div class="photos">          
+        % for image in images:
+            <a href="/static/images/${ image.imageSource }" download><img class="gallery-icon" src = "/static/images/${ image.imageSource }"></a>
+            <p class="picture-title hidden">${ image.title }</p>
+        % endfor
+    </div>
+</%block>

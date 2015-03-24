@@ -1,0 +1,19 @@
+<%inherit file="base.htm" />
+
+<%block name='title'>Tabledemo</%block>
+
+<%block name="main_center_content2">
+    <div class="content">
+    	<h1>Table Demo</h1>
+        <p>Below is a paginated table</p>
+    </div>
+
+    <div id='table_container' data-page='${ initial_page }'>
+    	Tables goes here.
+    </div>
+
+    <div id='button_container'>
+    	<button id="prev_page_button" class="btn btn-default" type="submit">&larr; Previous Page</button>
+    	<button id="next_page_button" class="btn btn-default" type="submit">Next Page &rarr;</button>
+    </div>
+</%block>
