@@ -1,0 +1,1 @@
+$('.gallery-icon').enablePopOut();

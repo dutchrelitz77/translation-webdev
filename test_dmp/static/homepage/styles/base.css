@@ -1,0 +1,146 @@
+/* Styling for the alert box */
+
+.alert {
+    display: none;
+}
+
+.alert.show {
+    position:absolute;
+    right: 10px;
+    top: 60px;
+    background-color: #ffecec;
+    color: red;
+    border: 1px solid black;
+    height: 100px;
+    width: 400px;
+    text-align: center;
+}
+
+/* Custom Styling for the navbar */
+
+.container-fluid.byu {
+    background-color: #011948;
+}
+
+.navbar-default .navbar-text {
+    color: white;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: white;
+}
+
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+    color: greenyellow;
+}
+
+.navbar-nav>li>.dropdown-menu {
+    background-color: #011948;
+}
+
+.dropdown-menu>li>a {
+    color: white;
+}
+
+/* Styling for the main content */
+
+main {
+	width: 100%;
+}
+
+/* Styling for the left side content */
+
+#main_left_content {
+	background-color: #888888;
+	min-height: 1500px;
+    width: 15%;
+    float: left;
+    display: block;
+    margin-top: 30px;
+}
+
+#main_left_content_menu {
+    width: 250px;
+}
+
+#main_left_content_menu li {
+    list-style: none;
+    height: auto;
+    padding-left: 60px;
+    padding-top: 20px;
+    text-align: left;
+}
+
+#main_left_content_menu li a {
+    list-style: none;
+    height: auto;
+    text-align: left;
+    color: white;
+}
+
+/* Menu class to be fixed once scrolled down */
+
+.fixed {
+    position: fixed;
+}
+
+/* Styling for the main center content */
+
+#main_center_content {
+	background-color: whitesmoke;
+	min-height: 1500px;
+    float: left;
+    display: block;
+    width: 85%;
+    word-wrap: break-word;
+    margin-top: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+/* Styling for the footer */
+
+footer {
+	padding: 5px 0;
+    background-color: #e8e8e8;
+	min-height: 10px;
+    text-align: center;
+    vertical-align: center;
+    border: black;
+    clear: both;
+}
+
+/* Media queries for Responsive design */
+
+@media only screen and (max-width: 480px) {
+    /* Responsive design - left content */
+
+    #main_left_content {
+        width: 100%;
+        min-height: 180px;
+        margin-top: 30px;
+    }
+
+    #main_left_content_menu, #main_left_content_menu li {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0px;
+    }
+
+    #main_center_content {
+        width: 100%;
+        min-height: 200px;
+        margin: 0;
+    }
+
+    #main_right_content {
+        width: 100%;
+        min-height: 200px;
+        margin: 0;
+    }
+    
+    #main_right_content_menu, #main_right_content_menu li {
+        width: 100%;
+        padding: 10px 0px;
+    }
+}
