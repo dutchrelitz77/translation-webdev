@@ -24,7 +24,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ['webdev.ldschurcheuropegis.info']
+ALLOWED_HOSTS = ['.ldschurcheuropegis.info']
 
 
 
